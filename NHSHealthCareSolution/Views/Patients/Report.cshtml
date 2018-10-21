@@ -1,0 +1,37 @@
+﻿@model IEnumerable<NHSHealthCareSolution.Core.ViewModel.BmiReportViewModel>
+
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Body Mass Index reports</h2>
+
+<p>Report shows data for number for patients per BMI category for adult patient(exclude child upto age 18) </p>
+
+
+<p class="pull-right">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BmiCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientCount)
+        </th>
+     </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BmiCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientCount)
+        </td>
+    </tr>
+}
+
+</table>
